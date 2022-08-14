@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import LoginBackground from '../components/LoginBackground';
+import LoginBackground from '../ui/LoginBackground';
 
 const Home: NextPage = () => {
   return (
