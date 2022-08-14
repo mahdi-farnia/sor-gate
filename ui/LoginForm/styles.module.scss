@@ -1,0 +1,17 @@
+.wrapper {
+  width: max-content;
+  margin: 0 auto;
+
+  h2 {
+    display: none;
+  }
+}
+
+.form {
+  input {
+    width: 400px;
+    background-color: rgba($color: #fff, $alpha: 0.4);
+    padding: 6px 8px;
+    border-radius: 8px;
+  }
+}

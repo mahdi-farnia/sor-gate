@@ -1,0 +1,17 @@
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  2xl: 1400px
+);
+
+@mixin min-width($size) {
+  @if not map-has-key($map: $breakpoints, $key: $size) {
+    @error "[mixin.scss]InvalidBreakpointSize: " + $size + " is invalid!";
+  }
+
+  @media all and (min-width: #{map-get($breakpoints, $size)}) {
+    @content;
+  }
+}

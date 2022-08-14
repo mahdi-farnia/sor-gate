@@ -1,6 +1,8 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import LoginBackground from '../ui/LoginBackground';
+import LoginForm from '../ui/LoginForm';
+import LoginTitle from '../ui/LoginTitle';
 
 const Home: NextPage = () => {
   return (
@@ -11,6 +13,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <LoginBackground />
+      <LoginTitle />
+      <LoginForm />
     </>
   );
 };
