@@ -1,4 +1,4 @@
-import styles from './LoginBackground.module.scss';
+import styles from './styles.module.scss';
 import Image from 'next/image';
 import backgroundImage from '../../assets/login-bg.jpg';
 
