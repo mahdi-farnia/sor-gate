@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: 'DynaPuff', cursive;
+}
+
+.secondary-font {
+  font-family: 'Nunito', sans-serif;
+}
+
+input {
+  font-size: 1em; // disable webkit-zoom
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+button,
+textarea {
+  border-radius: 0; // disable iOS rounding...
+}
+
+.no-select,
+button {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
