@@ -10,6 +10,8 @@ const Home: NextPage = () => {
       <Head>
         <title>Gate | Welcome</title>
         <meta name="description" content="SoR individual and private website" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#000" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <LoginBackground />

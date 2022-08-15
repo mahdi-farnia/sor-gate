@@ -9,8 +9,8 @@ $anim-delay: 6s;
   padding: 60px 30px 30px;
   cursor: default;
   overflow: hidden;
-  --head-translateX: -45%;
-  --desc-translateX: 55%;
+  --head-translateX: -46%;
+  --desc-translateX: 52%;
 
   .wrapper {
     width: max-content;
@@ -67,8 +67,8 @@ $anim-delay: 6s;
 
   @include min-width($size: 'lg') {
     padding-top: 80px;
-    --head-translateX: -40%;
-    --desc-translateX: 100%;
+    --head-translateX: -28%;
+    --desc-translateX: 124%;
 
     h1 {
       font-size: 5em;
