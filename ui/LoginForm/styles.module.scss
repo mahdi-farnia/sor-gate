@@ -54,6 +54,7 @@
   }
 
   .hint {
+    width: 100%;
     position: absolute;
     top: 100%;
     left: 50%;
@@ -75,6 +76,7 @@
     }
 
     span {
+      text-align: center;
       display: block;
       transform: scale(0.8);
       animation: text-cycle 0.7s 1.5s ease forwards;
@@ -106,7 +108,7 @@
 
 .btnWrapper {
   width: max-content;
-  margin: 5vh auto 0;
+  margin: 8vh auto 0;
 }
 
 .submitBtn {

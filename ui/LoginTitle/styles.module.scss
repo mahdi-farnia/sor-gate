@@ -10,42 +10,55 @@ $anim-delay: 6s;
   cursor: default;
   overflow: hidden;
   --head-translateX: -46%;
-  --desc-translateX: 52%;
 
   .wrapper {
     width: max-content;
     position: relative;
     margin: 0 auto;
+    will-change: transform;
   }
 
   h1 {
     font-size: 2em;
     will-change: transform;
-    animation: head-move 1s $anim-delay cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
   }
 
+  --para-width-animated: 100%;
   p {
-    width: 200%;
+    width: 0;
     position: absolute;
     top: 50%;
-    left: 0;
+    left: 100%;
     font-size: 14px;
     font-weight: 500;
-    transform: translateY(-50%);
+    transform: translate(-7%, -50%);
     overflow: hidden;
+    will-change: width;
+
+    &::after {
+      content: '';
+      width: 20px;
+      height: 100%;
+      background-image: linear-gradient(to right, transparent, rgb(9, 11, 12, 0.5));
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    &:global(.anim-ended)::after {
+      display: none;
+    }
   }
 
   .description {
     display: block;
     width: max-content;
-    opacity: 0;
+    position: relative;
     will-change: transform, opacity;
-    animation: desc-move 1s $anim-delay cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
   }
 
   @include min-width($size: 'sm') {
     --head-translateX: -45%;
-    --desc-translateX: 70%;
 
     h1 {
       font-size: 2.5em;
@@ -54,7 +67,6 @@ $anim-delay: 6s;
 
   @include min-width($size: 'md') {
     --head-translateX: -30%;
-    --desc-translateX: 108%;
 
     h1 {
       font-size: 3.5em;
@@ -67,8 +79,8 @@ $anim-delay: 6s;
 
   @include min-width($size: 'lg') {
     padding-top: 80px;
+    --para-width-animated: 70%;
     --head-translateX: -28%;
-    --desc-translateX: 124%;
 
     h1 {
       font-size: 5em;
@@ -79,26 +91,51 @@ $anim-delay: 6s;
       font-weight: 700;
     }
   }
+
+  &:global(.loaded) {
+    .wrapper {
+      animation: head-move 1s $anim-delay cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+    }
+
+    h1 {
+      animation: scale-down 1s $anim-delay cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+    }
+
+    p {
+      animation: desc-move 1s $anim-delay cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+    }
+
+    .hiddenTitle {
+      visibility: hidden;
+    }
+  }
 }
 
 @keyframes head-move {
   from {
-    transform: translateX(0) scale(1);
+    transform: translateX(0);
   }
 
   to {
-    transform: translateX(var(--head-translateX)) scale(0.8);
+    transform: translateX(var(--head-translateX));
+  }
+}
+
+@keyframes scale-down {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.8);
   }
 }
 
 @keyframes desc-move {
   from {
-    transform: translateX(0);
-    opacity: 0;
+    width: 0;
   }
 
   to {
-    transform: translateX(var(--desc-translateX));
-    opacity: 1;
+    width: var(--para-width-animated);
   }
 }
